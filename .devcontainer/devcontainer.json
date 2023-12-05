@@ -3,5 +3,6 @@
 	"build": {"dockerfile": "Dockerfile", "args": { "VARIANT": "4.3.2" }},
 	"forwardPorts": [8787],
 	"portsAttributes": {"8787": {"label": "Rstudio", "requireLocalPort": true, "onAutoForward": "ignore"}},
-	"postAttachCommand": "sudo rstudio-server start"
+	"postAttachCommand": "sudo rstudio-server start",
+	"postCreateCommand": "mv datos.sav ../../home/rstudio/"
 }
