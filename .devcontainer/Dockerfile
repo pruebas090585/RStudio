@@ -15,10 +15,11 @@ RUN /rocker_scripts/install_rstudio.sh
 
 RUN install2.r --error --skipinstalled -n -1 \
         haven \
-        # ggplot2 \
-        # rmarkdown \
-        # tidyr \
-        # markdown \
+        Rcpp \
+        ggplot2 \
+        rmarkdown \
+        tidyr \
+        markdown \
     && rm -rf /tmp/downloaded_packages
 
 EXPOSE 8787
