@@ -1,5 +1,5 @@
 {
-	"name": "R Data Science Environment",
+	"name": "R y RStudio",
 	"build": {"dockerfile": "Dockerfile", "args": { "VARIANT": "4.3.2" }},
 	"forwardPorts": [8787],
 	"portsAttributes": {"8787": {"label": "Rstudio", "requireLocalPort": true, "onAutoForward": "ignore"}},
