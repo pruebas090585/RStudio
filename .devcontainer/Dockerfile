@@ -14,11 +14,11 @@ ENV QUARTO_VERSION=default
 RUN /rocker_scripts/install_rstudio.sh
 
 RUN install2.r --error --skipinstalled -n -1 \
-        haven \
-        ggplot2 \
-        rmarkdown \
-        tidyr \
-        markdown \
+        #haven \
+        #ggplot2 \
+        #rmarkdown \
+        #tidyr \
+        #markdown \
     && rm -rf /tmp/downloaded_packages
     && mv datos.sav /workspaces/RStudio/
     && mv nombre_de_estudiante.qmd /workspaces/RStudio/
