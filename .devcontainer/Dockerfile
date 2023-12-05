@@ -19,7 +19,9 @@ RUN install2.r --error --skipinstalled -n -1 \
         # rmarkdown \
         # tidyr \
         # markdown \
-    && rm -rf /tmp/downloaded_packages
+    && rm -rf /tmp/downloaded_packages \
+    && mv datos.sav ../../home/rstudio/ \
+    && mv presenta.qmd ../../home/rstudio/
 
 EXPOSE 8787
 
