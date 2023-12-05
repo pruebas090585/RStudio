@@ -20,30 +20,14 @@ editor: visual
 
 Oishi et al. (2019) validaron un test para medir una "vida psicológicamente rica" (psychologically rich life), es decir, una vida caracterizada por experiencias que enriquecen la vivencia de la misma al ser novedosas, interesantes y que impliquen cambios de perspectiva. En su versión final, el test cuenta con 17 ítems; no obstante, el artículo también presenta una versión reducida (de 12 ítems) como una opción alternativa viable. En ambos casos, las respuestas posibles a los ítems son: 1 (muy en desacuerdo/strongly disagree), 2 (en desacuerdo/disagree), 3 (algo en desacuerdo/slightly disagree), 4 (ni de acuerdo ni en desacuerdo/neither agree nor disagree), 5 (algo de acuerdo/slightly agree), 6 (de acuerdo/agree) y 7 (muy de acuerdo/strongly agree).
 
-# Instalación de paquetes
-
-```{r, eval=FALSE}
-
-install.packages("psych", dependencies = TRUE)
-install.packages("dplyr")
-install.packages("readr")
-install.packages("tidyr")
-install.packages("haven")
-install.packages("lavaan")
-install.packages("semTools")
-```
-
 # Activación de paquetes
 
 ```{r}
 
-library(psych)
 library(readr)
 library(dplyr)
 library(tidyr)
 library(haven)
-library(lavaan)
-library(semTools)
 ```
 
 # Definición de funciones
