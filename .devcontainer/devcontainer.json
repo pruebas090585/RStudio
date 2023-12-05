@@ -4,5 +4,5 @@
 	"forwardPorts": [8787],
 	"portsAttributes": {"8787": {"label": "Rstudio", "requireLocalPort": true, "onAutoForward": "ignore"}},
 	"postAttachCommand": "sudo rstudio-server start",
-	"postCreateCommand": "mv datos.sav ../../home/rstudio/"
+	"postCreateCommand": "mv datos.sav ../../home/rstudio/ && mv presenta.qmd ../../home/rstudio/"
 }
