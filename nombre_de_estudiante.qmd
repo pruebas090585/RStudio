@@ -1,0 +1,118 @@
+---
+title: "Tarea B"
+author: "Nombre de estudiante"
+editor: visual
+---
+
+# Instrucciones
+
+1.  El valor de esta tarea corresponde a un 25% de la nota final del curso.
+
+2.  Perderá 1% por cada día de retraso en la entrega hasta un máximo de 5%. El primer 1% se perderá si entrega la tarea después de las 13:00 horas del 6 de octubre de 2023.
+
+3.  La tarea puede realizarse individualmente o en pareja. Si esta tarea se realiza en pareja, las dos personas deben entregarla en Mediación Virtual. Si solamente una de las personas entrega la tarea, ambas perderán 1%.
+
+4.  Recuerde que, de acuerdo con el *Reglamento de orden y disciplina de los estudiantes de la Universidad de Costa Rica*, son faltas muy graves"presentar como propia una obra intelectual elaborada por otra u otras personas, para cumplir con los requisitos de cursos, trabajos finales de graduación o actividades académicas similares" (inciso k, artículo 4, capítulo II) y "hacerse suplantar o suplantar a otro en la realización de actividades que por su naturaleza debe ser realizada por el estudiante, ya sea prueba, examen, control de conocimientos o cualquier otra operación susceptible de ser evaluada" (inciso c, artículo 4, capítulo II).
+
+5.  Solamente se aceptará la entrega de un archivo .qmd mediante el vínculo habilitado en Mediación Virtual para la Tarea B.
+
+# The psychologically rich life questionnaire
+
+Oishi et al. (2019) validaron un test para medir una "vida psicológicamente rica" (psychologically rich life), es decir, una vida caracterizada por experiencias que enriquecen la vivencia de la misma al ser novedosas, interesantes y que impliquen cambios de perspectiva. En su versión final, el test cuenta con 17 ítems; no obstante, el artículo también presenta una versión reducida (de 12 ítems) como una opción alternativa viable. En ambos casos, las respuestas posibles a los ítems son: 1 (muy en desacuerdo/strongly disagree), 2 (en desacuerdo/disagree), 3 (algo en desacuerdo/slightly disagree), 4 (ni de acuerdo ni en desacuerdo/neither agree nor disagree), 5 (algo de acuerdo/slightly agree), 6 (de acuerdo/agree) y 7 (muy de acuerdo/strongly agree).
+
+# Instalación de paquetes
+
+```{r, eval=FALSE}
+
+install.packages("psych", dependencies = TRUE)
+install.packages("dplyr")
+install.packages("readr")
+install.packages("tidyr")
+install.packages("haven")
+install.packages("lavaan")
+install.packages("semTools")
+```
+
+# Activación de paquetes
+
+```{r}
+
+library(psych)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(haven)
+library(lavaan)
+library(semTools)
+```
+
+# Definición de funciones
+
+```{r}
+
+correlacion <- function(df) round(cor(df), 2)
+
+analisisItems <- function(psychObj) {
+  print(getElement(psychObj, "total")[1])
+  print(
+    data.frame(
+      alpha.drop = getElement(psychObj, "alpha.drop")[[1]],
+      getElement(psychObj, "item.stats")[5:7]))
+}
+```
+
+# Importación de los datos
+
+```{r}
+
+PRLS <- read_sav("Rich Scale Study 1 final.sav")
+```
+
+# 1. Selección de ítems (4%)
+
+Seleccione los 36 ítems de la versión inicial del test y los guarda en un objeto llamado `items`. Estos ítems se muestran en el apéndice B del artículo (*Appendix B. A psychologically rich life questionnaire (Original 36-item Version) administered in Study 1*). Las columnas correspondientes a estos ítems tienen los siguientes nombres: `Pre_PsychRich1`, `Pre_PsychRich2`, `Pre_PsychRich3`, `Pre_PsychRich4`, `Pre_PsychRich5`, `Pre_PsychRich6`, `Pre_PsychRich7`, `Pre_PsychRich8`, `Pre_PsychRich9`, `Pre_PsychRich10`, `Pre_PsychRich11`, `Pre_PsychRich12`, `Pre_PsychRich13`, `Pre_PsychRich14`, `Pre_PsychRich15`, `Pre_PsychRich16`, `Pre_PsychRich17`, `Pre_PsychRich18`, `Pre_PsychRich19`, `Pre_PsychRich20`, `Pre_PsychRich21`, `Pre_PsychRich22`, `Pre_PsychRich23`, `Pre_PsychRich24`, `Pre_PsychRich25`, `Pre_PsychRich26`, `Pre_PsychRich27`, `Pre_PsychRich28`, `Pre_PsychRich29`, `Pre_PsychRich30`, `Pre_PsychRich31`, `Pre_PsychRich32`, `Pre_PsychRich33`, `Pre_PsychRich34`, `Pre_PsychRich35` y `Pre_PsychRich36`.
+
+```{r}
+
+
+```
+
+# 2. Eliminación de valores perdidos `NA` (4%)
+
+Elimine las filas que tengan al menos un valor perdido (`NA`).
+
+```{r}
+
+
+```
+
+# 3. Recodificación de ítems inversos (4%)
+
+Consulte el apéndice A (*Appendix A. Psychologically rich life questionnaire*) del artículo para identificar los ítems inversos. En la versión final del test que se muestra en el apéndice A se incluyen varios ítems de la versión original con 36 ítems, dentro de los cuales están los ítems inversos marcados. Sin embargo, algunos ítems que parecieran inversos no aparecen marcados como tales, por lo cual usted deberá decidir si los invierte o no. Es posible que se trate no de ítems inversos, sino de ítems con una redacción ambigua.
+
+```{r}
+
+
+```
+
+# 4. Análisis de ítems (4%)
+
+Utilice la función `analisisItems()` para generar los siguientes índices: (1) media de cada ítem, (2) correlación ítem-total, (3) $\alpha$ si se elimina el ítem y (4) desviación estándar de cada ítem. Cpn base en estos coeficientes, identifique cuáles son "problemáticos".
+
+```{r}
+
+
+```
+
+# 5. Confiabilidad sin ítems problemáticos (4%)
+
+Estime la confiabilidad de las puntuaciones con la función `splitHalf()` ***sin los ítems problemáticos***. Addemás incluya un comentario breve en el que interprete este valor final de la confiabilidad en el que incluya correctamente los siguientes términos: varianza de las puntuaciones verdaderas, varianza de las puntuaciones de error y varianza de las puntuaciones observadas. ***Su respuesta debe reflejar lo abordado en la clase del 22 de setiembre***.
+
+```{r}
+
+
+```
+
+# Referencia
+
+Oishi, S., Choi, H., Buttrick, N., Heintzelman, S. J., Kushlev, K., Westgate, E. C., Tucker, J., Ebersole, C. R., Axt, J., Gilbert, E., Ng, B. W., & Besser, L. L. (2019). The psychologically rich life questionnaire. *Journal of Research in Personality, 81*, 257--270. https://doi.org/10.1016/j.jrp.2019.06.010
