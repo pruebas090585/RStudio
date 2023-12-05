@@ -15,7 +15,7 @@ RUN /rocker_scripts/install_rstudio.sh
 
 RUN install2.r --error --skipinstalled -n -1 \
         haven \
-        ggaplot2 \
+        ggplot2 \
         rmarkdown \
         tidyr \
         markdown \
