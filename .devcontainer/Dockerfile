@@ -12,8 +12,14 @@ ENV PANDOC_VERSION=default
 ENV QUARTO_VERSION=default
 
 RUN /rocker_scripts/install_rstudio.sh
-RUN /rocker_scripts/install_pandoc.sh
-RUN /rocker_scripts/install_quarto.sh
+
+RUN install2.r --error --skipinstalled -n -1 \
+        haven \
+        ggaplot2 \
+        rmarkdown \
+        tidyr \
+        markdown \
+    && rm -rf /tmp/downloaded_packages
 
 EXPOSE 8787
 
